@@ -1,0 +1,30 @@
+@import '../../styles/main.scss';
+
+.container {
+  font-family: $Text-font;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .wrapper {
+    position: relative;
+    width: 1000px;
+  }
+
+  .primary {
+    width: 300px;
+    color: $SNEAKERS_COLOR;
+    font-size: $MegaLarge;
+    line-height: 125px;
+  }
+
+  .secondary {
+    width: 500px;
+    position: absolute;
+    top: 70%;
+    left: 41%;
+    color: $PRIMARY_COLOR;
+    font-size: $Medium;
+  }
+}

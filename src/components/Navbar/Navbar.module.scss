@@ -1,0 +1,30 @@
+@import '../../styles/main.scss';
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  width: 100%;
+  height: 150px;
+
+  span {
+    transition: all 1s ease-out;
+    padding: 0px 20px;
+  }
+
+  .logoWrapper {
+    font-family: $Logo-font;
+    font-size: $Large;
+    letter-spacing: 0.8em;
+    padding-left: 20px;
+  }
+
+  .infoWrapper {
+    font-family: $Logo-font;
+    font-size: $Medium;
+  }
+}

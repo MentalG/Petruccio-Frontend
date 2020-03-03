@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Adamina&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Spartan&display=swap');
+
+$Logo-font : 'Abel';
+$Text-font : 'Adamina';
+$Product-font : 'Spartan';
+
+$mobileXS : 375px;
+$mobile   : 600px;
+$tabletXS : 768px;
+$tablet   : 1024px;
+$desktop  : 1279px;
+
+// sizes
+
+// font sizes
+$Small : 16px;
+$Medium : 24px;
+$Large : 32px;
+$MegaLarge : 144px;
+
+// colors
+$BACKGROUND_COLOR : #E3D9BF;
+$WHITE : #FFF;
+
+// text colors
+$PRIMARY_COLOR : #656565;
+
+//Product colors
+$SNEAKERS_COLOR : #CA8122;
