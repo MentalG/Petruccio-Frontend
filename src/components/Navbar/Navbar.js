@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import styles from './Navbar.module.scss';
 
 const Navbar = ({color}) => {
@@ -15,5 +17,13 @@ const Navbar = ({color}) => {
     </div>
   );
 };
+
+Navbar.propTypes = {
+  color: PropTypes.string
+}
+
+Navbar.defaultProps = {
+  color: '#000'
+}
 
 export default Navbar;

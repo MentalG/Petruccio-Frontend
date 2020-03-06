@@ -1,25 +1,35 @@
 import React from 'react';
 
+import data from '@api/mockup.js';
+
 import styles from './ProductPage.module.scss';
 
 const ProductPage = props => {
-  const { backgroundColor, name, image, id } = props;
+  const item = data.filter(({ id }) => {
+    return id === props.id;
+  });
+  const { name, image, backgroundColor } = item[0];
 
   return (
-    <section
-      className={styles.container}
-      style={{ background: `${backgroundColor}` }}
-      id={id}
-    >
-      <div className={styles.outerWrapper}>
-        <div className={styles.wrapper}>
-          <div className={styles.productName}>
-            <span>{name}</span>
+    <section className={styles.container}>
+      <div className={styles.wrapper}>
+          <span
+            className={styles.productName}
+            style={{ color: `${backgroundColor}` }}
+          >
+            {name}
+          </span>
+        <div className={styles.productImage}>
+          <div
+            className={styles.elipse}
+            style={{
+              color: `${backgroundColor}`,
+              border: `3px solid ${backgroundColor}`
+            }}
+          >
+            LESS SUGAR
           </div>
-          <div>
-            <div className={styles.elipse}>LESS SUGAR</div>
-          </div>
-          <div className={styles.product}>
+          <div className={styles.imageWrapper}>
             <img src={image} />
           </div>
         </div>

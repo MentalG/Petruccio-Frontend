@@ -4,13 +4,15 @@ import data from '@api/mockup.js';
 
 import Navbar from '@components/Navbar';
 import Title from '@components/Title';
-import ProductPage from '@components/ProductPage';
+import Product from '@components/Product';
 
 import styles from '@styles/mainPage.module.scss';
 
 const renderProducts = () => {
   return data.map((item, key) => {
-    return <ProductPage {...item} key={key}/>;
+    return (
+      <Product {...item} key={key} />
+    );
   });
 };
 
