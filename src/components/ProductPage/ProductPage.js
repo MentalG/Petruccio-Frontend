@@ -1,5 +1,9 @@
 import React from 'react';
 
+import { connect } from 'react-redux';
+
+import { addProduct } from '@store/actions/shoppingActions.js';
+
 import data from '@api/mockup.js';
 
 import styles from './ProductPage.module.scss';
@@ -10,15 +14,20 @@ const ProductPage = props => {
   });
   const { name, image, backgroundColor } = item[0];
 
+  const clickHandle = () => {
+    props.addProduct()
+    console.log(props);
+  };
+
   return (
     <section className={styles.container}>
       <div className={styles.wrapper}>
-          <span
-            className={styles.productName}
-            style={{ color: `${backgroundColor}` }}
-          >
-            {name}
-          </span>
+        <span
+          className={styles.productName}
+          style={{ color: `${backgroundColor}` }}
+        >
+          {name}
+        </span>
         <div className={styles.productImage}>
           <div
             className={styles.elipse}
@@ -32,10 +41,25 @@ const ProductPage = props => {
           <div className={styles.imageWrapper}>
             <img src={image} />
           </div>
+          <div className={styles.buy} style={{ color: backgroundColor }}>
+            <button onClick={() => clickHandle()}>Buy</button>
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-export default ProductPage;
+ProductPage.getInitialProps = async({ store }) => {
+  return store
+}
+
+const mapStateToProps = state => ({
+  shoping: state
+});
+
+const mapDispatchToProps = {
+  addProduct: addProduct
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductPage);

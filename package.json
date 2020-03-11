@@ -13,10 +13,14 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.6",
+    "next-redux-wrapper": "^5.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-animations": "^1.0.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "next": "^9.2.1",

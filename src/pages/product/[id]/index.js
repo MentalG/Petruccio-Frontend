@@ -1,17 +1,16 @@
 import React from 'react';
 
+import { useRouter } from 'next/router'
+
 import Navbar from '@components/Navbar';
 import ProductPage from '@components/ProductPage';
-
-import { useRouter } from 'next/router';
 
 const Product = () => {
   const router = useRouter();
 
   return (
     <>
-      <Navbar />
-      {/* <div>{router.query.id}</div> */}
+      {/* <Navbar /> */}
       <ProductPage id={router.query.id}/>
     </>
   );

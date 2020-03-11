@@ -22,7 +22,7 @@ const Product = props => {
             <div className={styles.elipse}>LESS SUGAR</div>
           </div>
           <div className={styles.product}>
-            <Link href='/products/[id]' as={`/products/${id}`}>
+            <Link href='/product/[id]' as={`/product/${id}`}>
               <img src={image} />
             </Link>
           </div>
