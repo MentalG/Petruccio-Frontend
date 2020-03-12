@@ -8,6 +8,8 @@ import store from '@store/store.js';
 
 import Navbar from '@components/Navbar';
 
+import '@styles/index.module.scss';
+
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     const pageProps = Component.getInitialProps
@@ -18,13 +20,16 @@ class MyApp extends App {
   }
 
   render() {
-    const { Component, pageProps, store } = this.props;
+    const { Component, pageProps, store, router } = this.props;
 
     return (
-      <Provider store={store}>
-        <Navbar />
-        <Component {...pageProps} />
-      </Provider>
+        <>
+        <title>Pettrucio</title>
+        <Provider store={store}>
+          <Navbar />
+          <Component {...pageProps} route={router.route} />
+        </Provider>
+        </>
     );
   }
 }

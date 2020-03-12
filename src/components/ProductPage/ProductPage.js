@@ -15,8 +15,7 @@ const ProductPage = props => {
   const { name, image, backgroundColor } = item[0];
 
   const clickHandle = () => {
-    props.addProduct()
-    console.log(props);
+    props.addProduct(item[0]);
   };
 
   return (
@@ -50,12 +49,12 @@ const ProductPage = props => {
   );
 };
 
-ProductPage.getInitialProps = async({ store }) => {
-  return store
-}
+ProductPage.getInitialProps = async ({ store }) => {
+  return store;
+};
 
 const mapStateToProps = state => ({
-  shoping: state
+  shopping: state
 });
 
 const mapDispatchToProps = {

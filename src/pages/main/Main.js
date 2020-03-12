@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 import data from '@api/mockup.js';
 
-import Navbar from '@components/Navbar';
 import Title from '@components/Title';
 import Product from '@components/Product';
 
@@ -28,7 +27,6 @@ const Main = () => {
   })
 
   const wheelHandler = event => {
-    console.dir(event.target)
     const isUp = event.deltaY > 0 ? false : true
     let section = sections.indexOf(viewport)
 
@@ -44,7 +42,6 @@ const Main = () => {
   return (
     <div onWheel={(e) => wheelHandler(e)}>
       <section className={styles.titleSection} id={'main'}>
-        {/* <Navbar color={color}/> */}
         <Title />
       </section>
       <div className={styles.button} />

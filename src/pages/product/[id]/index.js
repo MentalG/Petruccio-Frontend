@@ -1,19 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 
-import Navbar from '@components/Navbar';
 import ProductPage from '@components/ProductPage';
 
-const Product = () => {
+const Product = props => {
+  // const [] = useState()
+  const { route } = props;
+
   const router = useRouter();
 
-  return (
-    <>
-      {/* <Navbar /> */}
-      <ProductPage id={router.query.id}/>
-    </>
-  );
+  return <ProductPage id={router.query.id}/>;
 };
 
 export default Product;
