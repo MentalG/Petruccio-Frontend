@@ -49,13 +49,9 @@ const ProductPage = props => {
   );
 };
 
-ProductPage.getInitialProps = async ({ store }) => {
-  return store;
-};
+ProductPage.getInitialProps = async ({ store }) => store
 
-const mapStateToProps = state => ({
-  shopping: state
-});
+const mapStateToProps = state => state
 
 const mapDispatchToProps = {
   addProduct: addProduct

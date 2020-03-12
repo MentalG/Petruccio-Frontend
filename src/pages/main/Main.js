@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+
+import { setViewport } from '@store/actions/siteEvents.js';
 
 import data from '@api/mockup.js';
 
@@ -9,38 +12,33 @@ import styles from '@styles/mainPage.module.scss';
 
 const renderProducts = () => {
   return data.map((item, key) => {
-    return (
-      <Product {...item} key={key} />
-    );
+    return <Product {...item} key={key} />;
   });
 };
 
-const Main = () => {
-  const [viewport, setViewport] = useState('main')
-  const sections = ['main'].concat(data.map((item) => item.id))
-  const [color, setColor] = useState('#000')
+const Main = props => {
+  const viewport = props.globalState.viewport
+  const sections = ['main'].concat(data.map(item => item.id));
 
   useEffect(() => {
-    document.getElementById(viewport).scrollIntoView({behavior: "smooth"})
-
-    viewport !== 'main' ? setColor('#fff') : setColor('#000')
-  })
+    document.getElementById(viewport).scrollIntoView({ behavior: 'smooth' });
+  });
 
   const wheelHandler = event => {
-    const isUp = event.deltaY > 0 ? false : true
-    let section = sections.indexOf(viewport)
+    const isUp = event.deltaY > 0 ? false : true;
+    let section = sections.indexOf(viewport);
 
     if (isUp) {
-      section <= 0 ? 0 : --section
-    } else if (!isUp){
-      section >= sections.length - 1 ? sections.length - 1 : ++section
+      section <= 0 ? 0 : --section;
+    } else if (!isUp) {
+      section >= sections.length - 1 ? sections.length - 1 : ++section;
     }
 
-    setViewport(sections[section])
-  }
+    props.setViewport(sections[section]);
+  };
 
   return (
-    <div onWheel={(e) => wheelHandler(e)}>
+    <div onWheel={e => wheelHandler(e)}>
       <section className={styles.titleSection} id={'main'}>
         <Title />
       </section>
@@ -50,4 +48,12 @@ const Main = () => {
   );
 };
 
-export default Main;
+Main.getInitialProps = async ({ store }) => store
+
+const mapStateToProps = state => state;
+
+const mapDispatchToProps = {
+  setViewport: setViewport
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

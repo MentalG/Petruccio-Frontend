@@ -21,6 +21,10 @@
     font-size: $Large;
     letter-spacing: 0.8em;
     padding-left: 20px;
+
+    span {
+      cursor: pointer;
+    }
   }
 
   .infoWrapper {

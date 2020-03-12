@@ -1,11 +1,17 @@
 import React from 'react';
-
 import Link from 'next/link';
+import { connect } from 'react-redux';
+
+import { setViewport } from '@store/actions/siteEvents.js';
 
 import styles from './Product.module.scss';
 
 const Product = props => {
   const { backgroundColor, name, image, id } = props;
+
+  const clickHandle = () => {
+    props.setViewport('main')
+  }
 
   return (
     <section
@@ -21,7 +27,7 @@ const Product = props => {
           <div>
             <div className={styles.elipse}>LESS SUGAR</div>
           </div>
-          <div className={styles.product}>
+          <div className={styles.product} onClick={() => clickHandle()}>
             <Link href='/product/[id]' as={`/product/${id}`}>
               <img src={image} />
             </Link>
@@ -32,4 +38,12 @@ const Product = props => {
   );
 };
 
-export default Product;
+Product.getInitialProps = async ({ store }) => store
+
+const mapStateToProps = state => state
+
+const mapDispatchToProps = {
+  setViewport: setViewport
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Product);

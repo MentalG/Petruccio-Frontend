@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 import { connect } from 'react-redux';
 
@@ -7,27 +8,33 @@ import PropTypes from 'prop-types';
 import styles from './Navbar.module.scss';
 
 const Navbar = props => {
+  const currentViewport = props.globalState.viewport
   const [count, setCount] = useState(0);
+  const [color, setColor] = useState('#000')
+  
+  useEffect(() => {
+    currentViewport !== 'main' ? setColor('#fff') : setColor('#000')
+  })
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={{color : color}}>
       <div className={styles.logoWrapper}>
-        <span style={{ color: '#000' }}>PETRUCCIO</span>
+        <Link href='/' as={`/`}>
+          <span>PETRUCCIO</span>
+        </Link>
       </div>
       <div className={styles.infoWrapper}>
-        <span style={{ color: '#000' }}>Products</span>
-        <span style={{ color: '#000' }}>Contacts</span>
-        <span style={{ color: '#000' }}>Cart({props.shopping.products.length})</span>
+        <span>Products</span>
+        <span>Contacts</span>
+        <span>Cart({props.globalState.products.length})</span>
       </div>
     </div>
   );
 };
 
-const mapStateToProps = state => state;
+Navbar.getInitialProps = async ({ store }) => store
 
-Navbar.getInitialProps = async ({ store }) => {
-  return store;
-};
+const mapStateToProps = state => state;
 
 Navbar.propTypes = {
   color: PropTypes.string
