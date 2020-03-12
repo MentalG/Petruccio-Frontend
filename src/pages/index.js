@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Main from '@pages/main';
 
-const MainPage = props => {
-  const { route } = props;
+const MainPage = () => {
+  useEffect(() => {
+    document.body.style.overflow = "hidden"
+  })
 
   return <Main/>;
 };

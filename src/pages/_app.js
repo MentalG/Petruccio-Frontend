@@ -20,16 +20,16 @@ class MyApp extends App {
   }
 
   render() {
-    const { Component, pageProps, store, router } = this.props;
+    const { Component, pageProps, store } = this.props;
 
     return (
-        <>
+      <>
         <title>Pettrucio</title>
         <Provider store={store}>
           <Navbar />
-          <Component {...pageProps} route={router.route} />
+          <Component {...pageProps} />
         </Provider>
-        </>
+      </>
     );
   }
 }

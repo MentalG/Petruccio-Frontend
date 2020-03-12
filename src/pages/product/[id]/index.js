@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { useRouter } from 'next/router';
 
 import ProductPage from '@components/ProductPage';
 
 const Product = props => {
-  // const [] = useState()
-  const { route } = props;
-
   const router = useRouter();
+
+  useEffect(() => {
+    document.body.style.overflow = "auto"
+  })
 
   return <ProductPage id={router.query.id}/>;
 };
