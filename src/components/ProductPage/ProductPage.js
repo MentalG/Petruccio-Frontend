@@ -2,7 +2,7 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-import { addProduct } from '@store/actions/shoppingActions.js';
+import { addProduct } from '@store/actions/cart.js';
 
 import data from '@api/mockup.js';
 

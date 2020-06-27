@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import styles from './Navbar.module.scss';
 
 const Navbar = props => {
-  const currentViewport = props.globalState.viewport
+  const currentViewport = props.siteReducer.viewport
   const [count, setCount] = useState(0);
   const [color, setColor] = useState('#000')
   
@@ -26,7 +26,7 @@ const Navbar = props => {
       <div className={styles.infoWrapper}>
         <span>Products</span>
         <span>Contacts</span>
-        <span>Cart({props.globalState.products.length})</span>
+        <span>Cart({props.cartReducer.cart.length})</span>
       </div>
     </div>
   );

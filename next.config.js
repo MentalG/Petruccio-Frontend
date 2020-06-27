@@ -4,6 +4,9 @@ const withSass = require('@zeit/next-sass');
 const withPlugins = require('next-compose-plugins');
 
 module.exports = withPlugins([withSass, withCss, withImages], {
+  env: {
+    API: 'http://localhost:5000/api',
+  },
   cssModules: true,
   cssLoaderOptions: {
     importLoaders: 1,

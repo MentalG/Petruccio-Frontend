@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { connect } from 'react-redux';
 
-import { setViewport } from '@store/actions/siteEvents.js';
+import { setViewport } from '@store/actions/site.js';
 
 import styles from './Product.module.scss';
 
